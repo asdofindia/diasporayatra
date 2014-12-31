@@ -35,11 +35,11 @@ function clean_string($string) {
 }
 
 function captchapass($captcharesponse){
-  return strcmp($captcharesponse,"4");
+  return ($captcharesponse==4);
 }
 
 $message = clean_string($revised_post_array["message2"]);
-$captcharesponse = $revised_post_array["captcha"];
+$captcharesponse = (int)$revised_post_array["captcha"];
 
 if (isWasteString($message)){
   $finalmessage="Please enter a valid message.";
