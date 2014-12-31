@@ -52,7 +52,7 @@ else {
 
   $fromemail = !isWasteString($revised_post_array["email2"]) ? $revised_post_array["email2"] : "anonymous@example.com";
   $fromname = !isWasteString($revised_post_array["name2"]) ? clean_string($revised_post_array["name2"]) : "anonymous";
-  $emailsubject = !isWasteString($revised_post_array["sujbect"])? substr(clean_string($revised_post_array["subject"]),0,156) : "New message for diaspora yatra";
+  $emailsubject = !isWasteString($revised_post_array["subject"])? substr(clean_string($revised_post_array["subject"]),0,156) : "New message for diaspora yatra";
 
   $headers = 'From: '.$fromemail."\r\n".
   'Reply-To: '.$fromemail."\r\n" .
