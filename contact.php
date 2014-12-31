@@ -6,7 +6,6 @@ http://php.net/manual/en/filter.filters.sanitize.php
 */
 
 $emailto = "diasporayatra@inventati.org";
-$emailsubject = "New message for diaspora yatra";
 
 function trim_value(&$value)
 {
@@ -17,10 +16,11 @@ array_filter($_POST, 'trim_value');    // the data in $_POST is trimmed
 
 $postfilter =    // set up the filters to be used with the trimmed post array
 array(
-  'email2'                        =>    array('filter' => FILTER_SANITIZE_EMAIL),
-  'name2'                            =>    array('filter' => FILTER_SANITIZE_STRING),
-  'message2'                            =>    array('filter' => FILTER_SANITIZE_STRING),
-  'captcha'                                     =>    array('filter' => FILTER_SANITIZE_NUMBER_INT)
+  'email2' =>    array('filter' => FILTER_SANITIZE_EMAIL),
+  'name2' =>    array('filter' => FILTER_SANITIZE_STRING),
+  'message2' =>    array('filter' => FILTER_SANITIZE_STRING),
+  'captcha'  =>    array('filter' => FILTER_SANITIZE_NUMBER_INT),
+  'subject' => array('filter' => FILTER_SANITIZE_STRING)
 );
 
 $revised_post_array = filter_var_array($_POST, $postfilter);    // must be referenced via a variable which is now an array that takes the place of $_POST[]
@@ -38,6 +38,7 @@ function captchapass($captcharesponse){
   return ($captcharesponse==4);
 }
 
+
 $message = clean_string($revised_post_array["message2"]);
 $captcharesponse = (int)$revised_post_array["captcha"];
 
@@ -51,14 +52,14 @@ else {
 
   $fromemail = !isWasteString($revised_post_array["email2"]) ? $revised_post_array["email2"] : "anonymous@example.com";
   $fromname = !isWasteString($revised_post_array["name2"]) ? clean_string($revised_post_array["name2"]) : "anonymous";
-
+  $emailsubject = !isWasteString($revised_post_array["sujbect"])? substr(clean_string($revised_post_array["subject"]),0,156) : "New message for diaspora yatra";
 
   $headers = 'From: '.$fromemail."\r\n".
   'Reply-To: '.$fromemail."\r\n" .
   'X-Mailer: PHP/' . phpversion();
   @mail($emailto, $emailsubject, $message, $headers);
 
-  $finalmessage = "Thank you for that awesome message!";
+  $finalmessage = "Hi ".$fromname."! Thank you for that awesome message!";
 }
 //TODO captchas from https://github.com/mokah/PHP-Contact-Form
 echo <<<EOT
