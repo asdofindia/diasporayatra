@@ -35,7 +35,7 @@ function clean_string($string) {
 }
 
 function captchapass($captcharesponse){
-  return (strcmp($captcharesponse,"4"));
+  return strcmp($captcharesponse,"4");
 }
 
 $message = clean_string($revised_post_array["message2"]);
