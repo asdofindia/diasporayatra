@@ -25,7 +25,7 @@
         $.each(data.responseData, function (i, item) {
           s += '<li><div class="itemTitle"><a href="https://pod.ponk.pink/p/' + item.id + '" target="' + def.TitleLinkTarget + '" >' + item.title + "</a></div>";
           if (def.ShowPubDate){
-            dt= new Date(item.root.created_at);
+            dt= new Date(item.created_at);
             if ($.trim(def.DateFormat).length > 0) {
               try {
                 moment.lang(def.DateFormatLang);
