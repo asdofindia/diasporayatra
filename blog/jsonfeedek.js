@@ -22,7 +22,7 @@
       dataType: "json",
       success: function (data) {
         $("#" + id).empty();
-        $.each(data.responseData, function (i, item) {
+        $.each(data, function (i, item) {
           s += '<li><div class="itemTitle"><a href="https://pod.ponk.pink/p/' + item.id + '" target="' + def.TitleLinkTarget + '" >' + item.title + "</a></div>";
           if (def.ShowPubDate){
             dt= new Date(item.created_at);
