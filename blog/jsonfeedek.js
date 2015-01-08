@@ -57,6 +57,7 @@
           replacedcontent = item.text.replace(replacePattern1, mdlink);
           replacePattern2 = /@{(.*?)}/ig;
           replacedcontent = replacedcontent.replace(replacePattern2, profiles);
+          replacedcontent = replacedcontent.replace('\r\n',"<br />");
           if (def.ShowDesc) {
             if (def.DescCharacterLimit > 0 && item.textlength > def.DescCharacterLimit) {
               s += '<div class="itemContent">' + replacedcontent(0, def.DescCharacterLimit) + "...</div>";
