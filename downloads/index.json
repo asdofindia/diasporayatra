@@ -1,0 +1,41 @@
+{
+  "images": [
+    {
+      "file":"bannerdiaspora.png",
+      "title": "Diaspora Banner",
+      "desc": "Nice little banner"
+    },
+    {
+      "file":"bannerdiaspin.png",
+      "title": "Diasp.in banner",
+      "desc": "Nice little diasp.in banner"
+    },
+    {
+      "file":"template.png",
+      "title": "Template 1",
+      "desc": "A template for venues"
+    },
+    {
+      "file":"template2.png",
+      "title": "Template 2",
+      "desc": "Another template for venues"
+    },
+    {
+      "file":"stickers.zip",
+      "title": "Stickers",
+      "desc": "Sticker pack",
+      "thumb":"low_stickers.jpg"
+    },
+    {
+      "file":"diasporayatraflag.svg",
+      "title": "Flag",
+      "desc": "Flag of the yatra",
+      "thumb": "low_diasporayatraflag.jpg"
+    },
+    {
+      "file":"cartoon.png",
+      "title": "Cartoon 1",
+      "desc": "A jab on privacy violation"
+    }
+  ]
+}
