@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<title>Diaspora Yatra Blog</title>
+<link href="FeedEk.css" rel="stylesheet" type='text/css'>
+</head>
+<body>
+  <h1>Diaspora Yatra Blog</h1>
+  <div id="divRss">
+  </div>
+  <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="jsonfeedek.js"></script>
+  <script>
+    $("#divRss").FeedEk({
+      FeedUrl: "fetch.php"
+    });
+  </script>
+</body>
+</html>
