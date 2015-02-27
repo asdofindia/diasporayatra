@@ -1,0 +1,9 @@
+h2, h3, h4 {
+  text-align:center;
+}
+
+#crossout{
+  font-size:600px;
+  position: absolute;
+  text-align:center;
+}

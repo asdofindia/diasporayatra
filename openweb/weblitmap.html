@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html class="ng-scope" dir="ltr" xmlns:ng="http://angularjs.org" ng-app="webmakerApp" id="ng-app" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title class="ng-binding" ng-bind-html="title | i18n">Web Literacy Map</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <!-- For sharing & search engines -->
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://webmaker.org/img/logo-og.png">
+    <meta property="og:image:width" content="1400">
+    <meta property="og:image:height" content="1400">
+    <meta property="og:site_name" content="Webmaker">
+    <meta property="og:determiner" content="">
+    <meta property="og:locale" content="en_US">
+    <!-- ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="bn_BD"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="bn_IN"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="da_DK"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="de"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="en_CA"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="en_US"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="es"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="es_CL"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="es_MX"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="fr"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="hi_IN"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="id"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="it"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="km"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="nl"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="pt"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="pt_BR"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="ru"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="sl"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="te"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="th_TH"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="zh_CN"><!-- end ngRepeat: language in languages track by $index --><meta class="ng-scope" ng-repeat="language in languages track by $index" property="og:locale:alternate" content="zh_TW"><!-- end ngRepeat: language in languages track by $index -->
+    <!-- TODO update og:title maybe add an angular factory to update all of meta -->
+    <meta property="og:title" content="Mozilla Webmaker Web Literacy Resources">
+    <meta property="og:description" content="We're a global community dedicated to teaching digital skills and web literacy. We explore, tinker and create together to build a web that's open and made by everyone.">
+    <meta property="og:url" content="https://webmaker.org/en-US/literacy">
+
+    <link rel="canonical" href="https://webmaker.org/en-US/literacy">
+    <meta property="description" content="We're a global community dedicated to teaching digital skills and web literacy. We explore, tinker and create together to build a web that's open and made by everyone.">
+    <!-- /sharing -->
+
+    <link rel="icon" type="image/png" href="https://webmaker.org/img/favicon.ico">
+    <!-- We have to do this to make sure we display the page when localization has been loaded. -->
+    <style>
+      html, body {
+        display: none;
+      }
+    </style>
+    <link rel="stylesheet" href="weblitmap_files/css.css">
+    <link rel="stylesheet" href="weblitmap_files/font-awesome.css">
+    <!-- Note: this file is rendered with Less middleware can be found at /less/explore/main.less -->
+    <link href="weblitmap_files/main.css" rel="stylesheet" ng-href="/css/angular/main.ltr.css">
+</head>
+<body style="padding-top: 0px;" id="page-literacy">
+
+  <!-- ngInclude: '/views/partials/navigation.html' --><header class="explore-nav ng-scope" ng-include="'/views/partials/navigation.html'" ng-controller="navigationController"><nav class="navbar navbar-default navbar-webmaker ng-scope">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" ng-click="collapseToggle()">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="fa fa-bars fa-lg"></span>
+      </button>
+
+      <a href="https://webmaker.org/en-US" push-state="true" class="logo webmaker-logo"><img src="weblitmap_files/logo.png"></a>
+    </div>
+
+    <div style="height: 0px;" class="navbar-collapse text-center-xs collapse" collapse="primaryCollapse">
+      <form class="navbar-form navbar-right ng-valid ng-dirty">
+        <div class="form-group">
+          <select style="display: none;" tabindex="-1" class="form-control ng-valid selectized ng-dirty" language-select="" ng-model="language" redirect="true"><option value="en-US" selected="selected"></option></select><div class="selectize-control form-control ng-pristine ng-valid single"><div class="selectize-input items has-options full has-items"><div data-value="en-US" class="item">English (US)</div><input style="width: 4px; opacity: 0; position: absolute; left: -10000px;" tabindex="" autocomplete="off" type="text"></div><div style="display: none;" class="selectize-dropdown form-control ng-pristine ng-valid single"><div class="selectize-dropdown-content"><div data-value="bn-BD" data-selectable="" class="option">বাংলা(বাংলাদেশ)</div><div data-value="bn-IN" data-selectable="" class="option">বাংলা (ভারত)</div><div data-value="da-DK" data-selectable="" class="option">Dansk</div><div data-value="de" data-selectable="" class="option">Deutsch</div><div data-value="en-CA" data-selectable="" class="option">English (Canada)</div><div data-value="en-US" data-selectable="" class="option selected">English (US)</div><div data-value="es" data-selectable="" class="option">Español</div><div data-value="es-CL" data-selectable="" class="option">Español (Chile)</div><div data-value="es-MX" data-selectable="" class="option">Español (México)</div><div data-value="fr" data-selectable="" class="option">Français</div><div data-value="hi-IN" data-selectable="" class="option">हिन्दी</div><div data-value="id" data-selectable="" class="option">Bahasa Indonesia</div><div data-value="it" data-selectable="" class="option">Italiano</div><div data-value="km" data-selectable="" class="option">ភាសាខ្មែរ</div><div data-value="nl" data-selectable="" class="option">Nederlands</div><div data-value="pt" data-selectable="" class="option">Português</div><div data-value="pt-BR" data-selectable="" class="option">Português (Brasil)</div><div data-value="ru" data-selectable="" class="option">Русский</div><div data-value="sl" data-selectable="" class="option">Slovenščina</div><div data-value="te" data-selectable="" class="option">తెలుగు</div><div data-value="th-TH" data-selectable="" class="option">ภาษาไทย (ประเทศไทย)</div><div data-value="zh-CN" data-selectable="" class="option">中文(简体)</div><div data-value="zh-TW" data-selectable="" class="option">中文(台灣)</div></div></div></div>
+        </div>
+      </form>
+      <!-- ngInclude: '/views/partials/user-box.html' --><div class="ng-scope" ng-include="'/views/partials/user-box.html'"><ul class="nav navbar-nav navbar-right ng-scope">
+  <li dropdown="" class="dropdown ng-hide" ng-show="_user.email">
+  <a target="_self" aria-expanded="false" aria-haspopup="true" dropdown-toggle="" class="navbar-user-info dropdown-toggle ng-binding">
+    <img class="user-info-avatar" ng-src=""> Hi <strong class="ng-binding"></strong>
+    <span class="label label-primary ng-binding ng-hide" ng-show="_user.isAdmin">admin</span>
+    <span class="label label-info ng-binding ng-hide" ng-show="!_user.isAdmin &amp;&amp; _user.isSuperMentor">supermentor</span>
+    <span class="label label-warning ng-binding ng-hide" ng-show="!_user.isAdmin &amp;&amp; !_user.isSuperMentor &amp;&amp; _user.isMentor">mentor</span>
+    <span class="caret"></span>
+  </a>
+  <ul dropdown-menu="" class="dropdown-menu">
+    <li><a target="_self" class="ng-binding" href="https://webmaker.org/en-US/me"><span class="fa fa-th-large"></span> My makes</a></li>
+    <li><a target="_self" class="ng-binding" href="https://webmaker.org/en-US/user/"><span class="fa fa-user"></span> My Profile</a></li>
+    <li><a target="_self" class="ng-binding" href="https://events.webmaker.org/user/"><span class="fa fa-flag"></span> My Events</a></li>
+    <li><a class="ng-binding" href="https://login.webmaker.org/account" target="_self"><span class="fa fa-cog"></span> My Settings</a></li>
+    <li class="divider"></li>
+    <li><a target="_self" class="ng-binding" wm-logout="" href="#"><span class="fa fa-sign-out"></span> Sign out</a></li>
+  </ul>
+  </li>
+  <li>
+    <button wm-join-webmaker="" wm-password-reset="" showcta="true" ng-show="!_user.email" class="btn btn-primary navbar-btn ng-isolate-scope ng-binding">Join Webmaker</button>
+    <button wm-signin="" ng-show="!_user.email" class="btn btn-secondary-nav navbar-btn ng-isolate-scope ng-binding">Sign In</button>
+  </li>
+</ul>
+</div>
+    </div>
+  </div>
+</nav>
+
+<!-- Secondary nav -->
+<nav class="navbar navbar-inverse navbar-no-header-xs ng-scope">
+  <div class="container">
+    <div style="height: 0px;" class="navbar-collapse collapse" collapse="secondaryCollapse">
+      <ul class="nav navbar-nav">
+        <!-- ngRepeat: section in nav.sections --><li ng-repeat="section in nav.sections" class="nav-icon ng-scope" ng-class="{ active: isActiveSection(section.id), dropdown: section.dropdown }">
+          <a target="_self" class="ng-binding" href="https://webmaker.org/en-US/explore" push-state="">
+          <span class="fa fa-random"></span>
+          Explore
+          </a>
+        </li><!-- end ngRepeat: section in nav.sections --><li ng-repeat="section in nav.sections" class="nav-icon ng-scope" ng-class="{ active: isActiveSection(section.id), dropdown: section.dropdown }">
+          <a class="ng-binding" href="https://webmaker.org/en-US/tools" push-state="true">
+          <span class="fa fa-hand-o-up"></span>
+          Tools
+          </a>
+        </li><!-- end ngRepeat: section in nav.sections --><li ng-repeat="section in nav.sections" class="nav-icon ng-scope" ng-class="{ active: isActiveSection(section.id), dropdown: section.dropdown }">
+          <a target="_self" class="ng-binding" href="https://webmaker.org/en-US/events" push-state="">
+          <span class="fa fa-map-marker"></span>
+          Events
+          </a>
+        </li><!-- end ngRepeat: section in nav.sections --><li ng-repeat="section in nav.sections" class="nav-icon ng-scope" ng-class="{ active: isActiveSection(section.id), dropdown: section.dropdown }">
+          <a class="ng-binding" href="https://webmaker.org/en-US/mentor" push-state="true">
+          <span class="fa fa-book"></span>
+          Teach
+          </a>
+        </li><!-- end ngRepeat: section in nav.sections -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Tertiary nav -->
+<!-- ngRepeat: section in nav.sections --><!-- ngIf: section.pages --><!-- end ngRepeat: section in nav.sections --><!-- ngIf: section.pages --><!-- end ngRepeat: section in nav.sections --><!-- ngIf: section.pages --><!-- end ngRepeat: section in nav.sections --><!-- ngIf: section.pages --><nav class="navbar navbar-no-header-xs navbar-tertiary ng-scope ng-hide navbar-affix-top" wm-affix="" data-offset-top="150" data-offset-height="60" ng-repeat="section in nav.sections" ng-if="section.pages" ng-show="isActiveSection(section.id)">
+
+  <div class="container" ng-class="{'show-xs':section.dropdown}">
+    <div style="height: 0px;" class="navbar-collapse collapse" collapse="tertiaryCollapse">
+      <ul class="nav navbar-nav">
+        <!-- ngRepeat: page in section.pages --><li class="col-3 ng-scope" ng-repeat="page in section.pages">
+          <a href="https://webmaker.org/en-US/resources" push-state="true" ng-class="{active : isActivePage(page.id)}">
+            <!-- ngIf: !page.doNotTranslate --><span class="ng-scope ng-binding" ng-if="!page.doNotTranslate">
+              Web Literacy
+            </span><!-- end ngIf: !page.doNotTranslate -->
+            <!-- ngIf: page.doNotTranslate -->
+          </a>
+        </li><!-- end ngRepeat: page in section.pages --><li class="col-3 ng-scope" ng-repeat="page in section.pages">
+          <a target="_self" href="https://webmaker.org/en-US/_badges" push-state="" ng-class="{active : isActivePage(page.id)}">
+            <!-- ngIf: !page.doNotTranslate --><span class="ng-scope ng-binding" ng-if="!page.doNotTranslate">
+              Badges
+            </span><!-- end ngIf: !page.doNotTranslate -->
+            <!-- ngIf: page.doNotTranslate -->
+          </a>
+        </li><!-- end ngRepeat: page in section.pages --><li class="col-3 ng-scope" ng-repeat="page in section.pages">
+          <a target="_self" href="https://webmaker.org/en-US/_hive" push-state="" ng-class="{active : isActivePage(page.id)}">
+            <!-- ngIf: !page.doNotTranslate -->
+            <!-- ngIf: page.doNotTranslate --><span class="ng-scope ng-binding" ng-if="page.doNotTranslate">
+              Hive
+            </span><!-- end ngIf: page.doNotTranslate -->
+          </a>
+        </li><!-- end ngRepeat: page in section.pages -->
+      </ul>
+      <!-- ngInclude: '/views/partials/user-box.html' --><div class="ng-scope" ng-include="'/views/partials/user-box.html'" ng-show="affixed"><ul class="nav navbar-nav navbar-right ng-scope">
+  <li dropdown="" class="dropdown ng-hide" ng-show="_user.email">
+  <a target="_self" aria-expanded="false" aria-haspopup="true" dropdown-toggle="" class="navbar-user-info dropdown-toggle ng-binding">
+    <img class="user-info-avatar" ng-src=""> Hi <strong class="ng-binding"></strong>
+    <span class="label label-primary ng-binding ng-hide" ng-show="_user.isAdmin">admin</span>
+    <span class="label label-info ng-binding ng-hide" ng-show="!_user.isAdmin &amp;&amp; _user.isSuperMentor">supermentor</span>
+    <span class="label label-warning ng-binding ng-hide" ng-show="!_user.isAdmin &amp;&amp; !_user.isSuperMentor &amp;&amp; _user.isMentor">mentor</span>
+    <span class="caret"></span>
+  </a>
+  <ul dropdown-menu="" class="dropdown-menu">
+    <li><a target="_self" class="ng-binding" href="https://webmaker.org/en-US/me"><span class="fa fa-th-large"></span> My makes</a></li>
+    <li><a target="_self" class="ng-binding" href="https://webmaker.org/en-US/user/"><span class="fa fa-user"></span> My Profile</a></li>
+    <li><a target="_self" class="ng-binding" href="https://events.webmaker.org/user/"><span class="fa fa-flag"></span> My Events</a></li>
+    <li><a class="ng-binding" href="https://login.webmaker.org/account" target="_self"><span class="fa fa-cog"></span> My Settings</a></li>
+    <li class="divider"></li>
+    <li><a target="_self" class="ng-binding" wm-logout="" href="#"><span class="fa fa-sign-out"></span> Sign out</a></li>
+  </ul>
+  </li>
+  <li>
+    <button wm-join-webmaker="" wm-password-reset="" showcta="true" ng-show="!_user.email" class="btn btn-primary navbar-btn ng-isolate-scope ng-binding">Join Webmaker</button>
+    <button wm-signin="" ng-show="!_user.email" class="btn btn-secondary-nav navbar-btn ng-isolate-scope ng-binding">Sign In</button>
+  </li>
+</ul>
+</div>
+    </div>
+  </div>
+</nav><!-- end ngIf: section.pages --><!-- end ngRepeat: section in nav.sections -->
+</header>
+  
+  <section class="main">
+    <!-- ngView:  --><div class="explore-main ng-scope" ng-view=""><div class="ng-scope" id="literacy">
+  <div class="container map">
+    <h1 class="ng-binding">
+      Web Literacy Map - 1.1.0
+    </h1>
+
+    <p class="lead ng-binding">Mozilla defines web literacy as the skills and competencies needed for reading, writing and participating on the web.</p>
+
+    <p class="lead" bind-unsafe-html="'StandardMainDesc2'| i18n"><span class="ng-scope">To chart these skills and competencies, Mozilla worked alongside a </span><a target="_self" class="ng-scope" href="https://wiki.mozilla.org/Learning/WebLiteracyMap/Contributors">community of stakeholders</a><span class="ng-scope"> to create the Web Literacy Map.</span></p>
+
+    <p class="lead" bind-unsafe-html="'StandardMainDesc3'| i18n"><span class="ng-scope">Read more about why Mozilla cares about web literacy in this </span><a target="_self" class="ng-scope" href="https://mozilla.github.io/webmaker-whitepaper/">Webmaker Whitepaper</a><span class="ng-scope">.</span></p>
+    <ul class="list-unstyled">
+      <!-- ngRepeat: (strand, literacies) in litMap --><li class="strand-section ng-scope" ng-repeat="(strand, literacies) in litMap">
+        <h2 class="strand" id="Building">
+          <strong class="ng-binding">
+            Building
+          </strong>
+        </h2>
+        <ul class="list-unstyled">
+          <!-- ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Composing for the web">
+              Composing for the web
+            </h3>
+
+            <p class="ng-binding">Creating and curating content for the web</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Inserting hyperlinks into a web page</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Embedding multimedia content into a web page</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Creating web resources in ways appropriate to the medium/genre</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Identifying and using HTML tags</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Structuring a web page</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Remixing">
+              Remixing
+            </h3>
+
+            <p class="ng-binding">Modifying existing web resources to create something new</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Identifying and using openly-licensed work</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Combining multimedia resources</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Creating something new on the web using existing resources</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Design and Accessibility">
+              Design and Accessibility
+            </h3>
+
+            <p class="ng-binding">Creating universally effective communications through web resources</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Identifying the different parts of a web page using industry-recognized terms</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Improving the accessibility of a web page by modifying its color scheme and markup</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Iterating on a design after feedback from a target audience</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Reorganizing the structure of a web page to improve its hierarchy/conceptual flow</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Demonstrating the difference between inline, embedded and external CSS</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Using CSS tags to change the style and layout of a Web page</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Coding/scripting">
+              Coding/scripting
+            </h3>
+
+            <p class="ng-binding">Creating interactive experiences on the web</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Explaining the differences between client-side and server-side scripting</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Composing working loops and arrays</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Reading and explaining the structure of code</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Using a script framework</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Adding code comments for clarification and attribution</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Infrastructure">
+              Infrastructure
+            </h3>
+
+            <p class="ng-binding">Understanding the Internet stack</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Understanding and labeling the web stack</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Explaining the differences between the web and the Internet</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Exporting and backing up your data from web services</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Moving the place(s) where your data is hosted on the web</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Securing your data against malware and computer criminals</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand -->
+        </ul>
+      </li><!-- end ngRepeat: (strand, literacies) in litMap --><li class="strand-section ng-scope" ng-repeat="(strand, literacies) in litMap">
+        <h2 class="strand" id="Connecting">
+          <strong class="ng-binding">
+            Connecting
+          </strong>
+        </h2>
+        <ul class="list-unstyled">
+          <!-- ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Sharing">
+              Sharing
+            </h3>
+
+            <p class="ng-binding">Creating web resources with others</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Sharing a resource using an appropriate tool and format for the audience</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Tracking changes made to co-created Web resources</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Using synchronous and asynchronous tools to communicate with Web communities, networks and groups</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Collaborating">
+              Collaborating
+            </h3>
+
+            <p class="ng-binding">Providing access to web resources</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Choosing a Web tool to use for a particular contribution/collaboration</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Co-creating Web resources</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Configuring notifications to keep up-to-date with community spaces and interactions</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Community Participation">
+              Community Participation
+            </h3>
+
+            <p class="ng-binding">Getting involved in web communities and understanding their practices</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Encouraging participation in web communities</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Using constructive criticism in a group or community setting</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Configuring settings within tools used by online communities</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Participating in both synchronous and asynchronous discussions</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Expressing opinions appropriately in web discussions</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Defining different terminology used within online communities</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Privacy">
+              Privacy
+            </h3>
+
+            <p class="ng-binding">Examining the consequences of sharing data online</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Identifying rights retained and removed through user agreements</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Taking steps to secure non-encrypted connections</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Explaining ways in which computer criminals are able to gain access to user information</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Managing the digital footprint of an online persona</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Identifying and taking steps to keep important elements of identity private</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Open Practices">
+              Open Practices
+            </h3>
+
+            <p class="ng-binding">Helping to keep the web democratic and universally accessible</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Distinguishing between open and closed licensing</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Making web resources available under an open license</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Using and sharing files in open, web-friendly formats when appropriate</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Contributing to an Open Source project</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand -->
+        </ul>
+      </li><!-- end ngRepeat: (strand, literacies) in litMap --><li class="strand-section ng-scope" ng-repeat="(strand, literacies) in litMap">
+        <h2 class="strand" id="Exploring">
+          <strong class="ng-binding">
+            Exploring
+          </strong>
+        </h2>
+        <ul class="list-unstyled">
+          <!-- ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Navigation">
+              Navigation
+            </h3>
+
+            <p class="ng-binding">Using software tools to browse the web</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Accessing the web using the common features of web browsers</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Using hyperlinks to access a range of resources on the web</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Reading, evaluating, and manipulating URLs</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Recognizing the visual cues in everyday web services</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Using browser add-ons and extensions to provide additional functionality</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Web Mechanics">
+              Web Mechanics
+            </h3>
+
+            <p class="ng-binding">Understanding the web ecosystem</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Using and understanding the differences between URLs, IP addresses and search terms</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Managing information from various sources on the web</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Demonstrating the difference between the results of varying search strategies</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Search">
+              Search
+            </h3>
+
+            <p class="ng-binding">Locating information, people and resources via the web</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Using keywords, search operators, and keyboard shortcuts to make web searches more efficient</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Finding real-time or time-sensitive information using a range of search techniques</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Locating or finding desired information within search results</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Synthesizing information found from online resources through multiple searches</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Credibility">
+              Credibility
+            </h3>
+
+            <p class="ng-binding">Critically evaluating information found on the web</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Making judgments based on technical and design characteristics to assess the credibility of information</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Researching authorship and ownership of websites and their content</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Comparing information from a number of sources to judge the trustworthiness of content</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Discriminating between 'original' and derivative web content</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand --><li class="competency-section ng-scope" ng-repeat="literacy in literacies | filter: strand">
+            <h3 class="competency ng-binding" id="Security">
+              Security
+            </h3>
+
+            <p class="ng-binding">Keeping systems, identities, and content safe</p>
+            <ul>
+              <!-- ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Detecting online scams and 'phishing' by employing recognized tools and techniques</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Encrypting data and communications using software and add-ons</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] --><li class="ng-scope" ng-repeat="point in wlcPoints[literacy.tag]">
+                <p class="ng-binding">Changing the default behavior of websites, add-ons and extensions to make web browsing more secure</p>
+              </li><!-- end ngRepeat: point in wlcPoints[literacy.tag] -->
+            </ul>
+          </li><!-- end ngRepeat: literacy in literacies | filter: strand -->
+        </ul>
+      </li><!-- end ngRepeat: (strand, literacies) in litMap -->
+    </ul>
+  </div>
+  <div class="well well-web-literacy">
+    <div class="container">
+      <h3 class="ng-binding">Translate the Web Literacy Map into your language.</h3>
+
+      <a class="btn btn-primary btn-lg" href="https://support.mozilla.org/en-US/kb/translate-webmaker" target="_self">
+        <span class="ng-binding">
+          Get involved!
+          <i class="icon-circle-arrow-right"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- ngInclude: '/views/partials/footer.html' --><div class="ng-scope" ng-include="'/views/partials/footer.html'"><nav class="navbar-footer ng-scope">
+  <div class="container">
+    <ul>
+      <li><a target="_self" class="ng-binding" href="https://webmaker.org/en-US/about">About</a></li>
+      <li><a target="_self" class="ng-binding" href="https://webmaker.org/en-US/mentor">Teach</a></li>
+      <li><a target="_self" class="ng-binding" href="https://sendto.mozilla.org/page/contribute/join-mozilla?source=join_link">
+        Donate
+      </a>
+    </li>
+    <li><a target="_self" class="ng-binding" href="mailto:help@webmaker.org">Contact</a></li>
+    <li><a target="_self" class="ng-binding" href="https://webmaker.org/en-US/privacy">Privacy</a></li>
+    <li><a target="_self" class="ng-binding" href="https://webmaker.org/en-US/terms">Legal</a></li>
+    <li>
+      <a target="_self" class="ng-binding" href="https://support.mozilla.org/products/webmaker">
+        Help
+      </a>
+    </li>
+  </ul>
+  <ul class="secondary">
+    <li><span class="fa fa-twitter"></span><a target="_self" href="https://twitter.com/webmaker">@webmaker</a></li>
+    <li><span class="fa fa-file-text-o"></span><a target="_self" class="ng-binding" href="https://blog.webmaker.org/">Blog</a></li>
+  </ul>
+  <div class="moz-logo">
+    <a target="_self" href="https://mozilla.org/">
+      <img src="weblitmap_files/logo-mozilla-white.png" alt="mozilla logo" height="26" width="100">
+    </a>
+  </div>
+</div>
+</nav>
+</div>
+</div>
+  </section>
+  
+  
+  
+  
+
+
+
+</body></html>
